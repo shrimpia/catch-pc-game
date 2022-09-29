@@ -32,7 +32,7 @@ let lift: Sprite | null = null;
 let gameState: 'beforePlayButton' | 'tutorial' | 'playing' | 'finish' = 'beforePlayButton';
 
 const sounds = new Howl({
-  src: ['/bgm.webm', '/bgm.mp3'],
+  src: ['/sounds/bgm.webm', '/sounds/bgm.mp3'],
   sprite: {
     tutorial: [0, 12800],
     intro: [13453, 12800],
@@ -54,13 +54,13 @@ function loadSounds() {
 }
 
 async function initBackground() {
-  const bgSprite = await sprite('/bg.png');
+  const bgSprite = await sprite('bg.png');
   root.addChild(bgSprite);
 }
 
 async function initCloud() {
-  const cloud1Sprite = await sprite('/cloud.png');
-  const cloud2Sprite = await sprite('/cloud.png');
+  const cloud1Sprite = await sprite('cloud.png');
+  const cloud2Sprite = await sprite('cloud.png');
 
   const width = cloud1Sprite.width;
   cloud2Sprite.position.x = width;
@@ -82,7 +82,7 @@ async function initCloud() {
 }
 
 async function initPlayButton() {
-  const playSprite = await sprite('/play.png');
+  const playSprite = await sprite('play.png');
   root.addChild(playSprite);
   playSprite.position.x = (WIDTH - playSprite.width) / 2;
   playSprite.position.y = (HEIGHT - playSprite.height) / 2;
@@ -101,7 +101,7 @@ async function initPlayButton() {
 }
 
 async function initLift() {
-  lift = await sprite('/lift.png');
+  lift = await sprite('lift.png');
   lift.position = new Point(70, 68);
   let isMoving = false;
   root.addChild(lift);
